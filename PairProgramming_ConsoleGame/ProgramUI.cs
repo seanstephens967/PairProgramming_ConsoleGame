@@ -17,22 +17,9 @@ namespace PairProgramming_ConsoleGame
         private void RunMenu()
         {
             bool keepThinking = true;
-            do
+            while (keepThinking)
             {
-                if (myAnswer.GetScore() <= -10)
-                {
-                    Console.Clear();
-                    Console.WriteLine("Game Over");
-                    Console.WriteLine("Press any key to exit.............");
-                    keepThinking = false;
-                }
-                if (myAnswer.GetScore() >= 50)
-                {
-                    Console.Clear();
-                    Console.WriteLine("You Win!");
-                    Console.WriteLine("Press any key to exit.............");
-                    keepThinking = false;
-                }
+
                 myAnswer.PrintScore();
                 Console.WriteLine("Welcome to random trivia! \n");
                 Console.WriteLine("Enter the number of the question you want to answer: \n" +
@@ -107,8 +94,24 @@ namespace PairProgramming_ConsoleGame
                         Console.WriteLine("Invalid");
                         break;
                 }
+                if (myAnswer.GetScore() <= -10)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Game Over");
+                    Console.WriteLine("Press any key to exit.............");
+                    Console.ReadKey();
+                    keepThinking = false;
+                }
+                if (myAnswer.GetScore() >= 50)
+                {
+                    Console.Clear();
+                    Console.WriteLine("You Win!");
+                    Console.WriteLine("Press any key to exit.............");
+                    Console.ReadKey();
+                    keepThinking = false;
+                }
 
-            } while (keepThinking);
+            } 
         }
     }
 }
